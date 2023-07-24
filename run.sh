@@ -1,4 +1,5 @@
-
+pip install peft==0.4.0 -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com 
+pip install -q -U git+https://github.com/huggingface/peft.git -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com 
 
 
 python3 train_qlora.py \
