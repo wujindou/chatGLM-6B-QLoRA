@@ -58,10 +58,11 @@ def parse_args():
 
 def tokenize_func(example, tokenizer, global_args, ignore_label_id=-100):
     """单样本tokenize处理"""
-    question = global_args.prompt_text + example['instruction']
+    # question = global_args.prompt_text + example['instruction']
+    question = '
     if example.get('input', None):
         if example['input'].strip():
-            question += f'''\n{example['input']}'''
+            question += f'''{example['input']}'''
     answer = example['output']
     q_ids = tokenizer.encode(text=question, add_special_tokens=False)
     a_ids = tokenizer.encode(text=answer, add_special_tokens=False)
