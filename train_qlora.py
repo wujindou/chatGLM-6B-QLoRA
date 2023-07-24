@@ -5,6 +5,8 @@
 # email: shuxueslpi@163.com
 
 import os
+import os
+os.environ["WANDB_DISABLED"] = "true"
 import argparse
 from typing import List, Dict, Optional
 
