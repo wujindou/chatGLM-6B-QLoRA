@@ -46,7 +46,7 @@ def parse_args():
     parser.add_argument('--train_data_path', type=str, required=True, help='训练数据路径')
     parser.add_argument('--eval_data_path', type=str, default=None, help='验证数据路径')
     parser.add_argument('--seed', type=int, default=42)
-    parser.add_argument('--max_input_length', type=int, default=1024, help='instruction + input的最大长度')
+    parser.add_argument('--max_input_length', type=int, default=2048, help='instruction + input的最大长度')
     parser.add_argument('--max_output_length', type=int, default=512, help='output的最大长度')
     parser.add_argument('--lora_rank', type=int, default=4, help='lora rank')
     parser.add_argument('--lora_alpha', type=int, default=32, help='lora_alpha')
@@ -64,7 +64,7 @@ def tokenize_func(example, tokenizer, global_args, ignore_label_id=-100):
     question = ''
     if example.get('input', None):
         if example['input'].strip():
-            question += f'''{example['input']}'''
+            question += f'''{example['input']}#回答：'''
     answer = example['output']
     q_ids = tokenizer.encode(text=question, add_special_tokens=False)
     a_ids = tokenizer.encode(text=answer, add_special_tokens=False)
